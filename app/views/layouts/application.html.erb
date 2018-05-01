@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortee</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<center>
+  
+  <%= yield %>
+
+  <% if flash[:shortee_id].present? %>
+  <p class='shortee-link'>
+
+    Your new shortee URL is:
+    <br>
+    <input id="copy-text" type="text" value="<%= url_url(flash[:shortee_id]) %>">
+    <br>
+    (click to copy link)
+
+    <script>
+
+      document.getElementById("copy-text").onclick = function() {
+        this.select();
+        document.execCommand('copy');
+        alert("Copied the text: " + this.value);
+      }
+
+    </script>
+</center>
+  </p>
+
+  <% end %>
+
+
+</body>
+</html>

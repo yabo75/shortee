@@ -1,0 +1,22 @@
+<h1>Shortee<br></h1>
+<h3>Enter URL to be shortee'd:<br></h3>
+
+<%= form_for @shortee do |form| %>
+  <p>
+
+    <%= form.text_field :url, placeholder: "http://www.example.com", style: "width: 400px; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);" %>
+  </p>
+
+  <% if @shortee.errors[:url].any? %>
+    <p class='error-messages'>
+      <%= @shortee.errors[:url].to_sentence %>.
+    </p>
+  <% end %>
+
+
+  <p class='buttons'>
+    <%= form.submit "Shortee my URL!", style: "box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);" %>
+  </p>
+
+
+<% end %>
