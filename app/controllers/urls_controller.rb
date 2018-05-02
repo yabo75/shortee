@@ -14,8 +14,6 @@ class UrlsController < ApplicationController
   	end
   end
 
-
-
   def show
   	@shortee = Url.find(params[:id])
   	p @shortee
